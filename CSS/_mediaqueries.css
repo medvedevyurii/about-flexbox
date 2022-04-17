@@ -1,0 +1,9 @@
+@media (min-width: 1050px) {
+  .container {
+    display: grid;
+    width: calc(100% - 16px);
+    grid-template-columns: 50% 50%;
+    row-gap: 40px;
+    column-gap: 10px;
+  }
+}

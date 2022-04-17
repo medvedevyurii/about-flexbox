@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучаем Flexbox</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>        
+    <header class="header">
+        <h1 class="header__header">Наглядное использование flexbox</h1>
+        <p class="header__description">Для тех, кто хочет разобраться что такое display:flex</p>
+    </header>
+
+    <h2>Свойства элемента-родителя</h2>
+    <div class="container">
+        
+        <!-- section 1 block/inline/flex -->
+        <fieldset class="section">
+            <legend>Block/Inline/Flex</legend>
+            <div class="section__wrapper section-1__wrapper">                
+                <div class="section__box section-1__box">Секция 1</div>
+                <div class="section__box section-1__box">Секция 2 длинная</div>
+                <div class="section__box section-1__box">Секция 3</div>
+            </div>        
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "display"</h4>
+                <div class="input__wrapper input-1__wrapper">
+                    <section><input type="radio" name="select-1" id="block" value="block" checked="checked" onchange="setDisplayValue()">block</section>
+                    <section><input type="radio" name="select-1" id="inline" value="inline" onchange="setDisplayValue()">inline</section>
+                    <section><input type="radio" name="select-1" id="inline-block" value="inline-block" onchange="setDisplayValue()">inline-block</section>
+                    <section><input type="radio" name="select-1" id="flex" value="flex" onchange="setDisplayValue()">flex</section>
+                    <section><input type="radio" name="select-1" id="inline-flex" value="inline-flex" onchange="setDisplayValue()">inline-flex</section>
+                </div>
+                <section class="description__text section-1__text">
+                    <p>Блочные элементы занимают всю длину родителя</p>
+                    <p>Зелёная рамка - контейнер для секций.</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-1__footer">И контейнер и секции - display:block</div>
+            </div>
+        </fieldset>
+
+        <!-- section 2 flex-direction-->
+        <fieldset class="section">
+            <legend>flex-direction</legend>
+            <div class="section__wrapper section-2__wrapper">                
+                <div class="section__box section-2__box">Секция 1</div>
+                <div class="section__box section-2__box">Секция 2</div>
+                <div class="section__box section-2__box">Секция 3</div>
+            </div>
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "flex-direction</h4>
+                <div class="input__wrapper input-2__wrapper">
+                    <section><input type="radio" name="select-2" id="row" value="row" checked="checked" onchange="setDirection()">row</section>
+                    <section><input type="radio" name="select-2" id="row-reverse" value="row-reverse" onchange="setDirection()">row-reverse</section>
+                    <section><input type="radio" name="select-2" id="column" value="column" onchange="setDirection()">column</section>
+                    <section><input type="radio" name="select-2" id="column-reverse" value="column-reverse" onchange="setDirection()">column-reverse</section>
+                </div>
+                <section class="description__text section-2__text-1">
+                    <p>Элементы выстраиваются в ряд слева направо</p>
+                    <p>Зелёная рамка - контейнер для секций.</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-2__footer-1">Контейнеру задано - flex-direction:row</div>
+            </div>        
+        </fieldset>
+
+        <!-- section 3 flex-wrap-->
+        <fieldset class="section">
+            <legend>flex-wrap</legend>
+            <div class="section__wrapper section-3__wrapper section__flex">                
+                <div class="section__box section-3__box">Секция 1</div>
+                <div class="section__box section-3__box">Секция 2</div>
+                <div class="section__box section-3__box">Секция 3</div>
+                <div class="section__box section-3__box">Секция 4</div>
+            </div>
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "flex-wrap"</h4>
+                <div class="input__wrapper input-3__wrapper">
+                    <section><input type="radio" name="select-3" id="nowrap" value="nowrap" checked="checked" onchange="setWrap()">nowrap </section>
+                    <section><input type="radio" name="select-3" id="wrap" value="wrap" onchange="setWrap()">wrap</section>
+                    <section><input type="radio" name="select-3" id="wrap-reverse" value="wrap-reverse" onchange="setWrap()">wrap-reverse</section>
+                </div>
+                <section class="description__text section-3__text">
+                    <p>Элементы сжимаются так, чтобы уместиться в одну строку</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-3__footer">Контейнеру задано - flex-wrap:nowrap</div>
+            </div>        
+        </fieldset>
+
+        <!-- section 4 justify-content-->
+        <fieldset class="section">
+            <legend>justify-content</legend>
+            <div class="section__wrapper section-4__wrapper section__flex">                
+                <div class="section__box section-4__box">Секция 1</div>
+                <div class="section__box section-4__box">Секция 2</div>
+                <div class="section__box section-4__box">Секция 3</div>
+            </div>        
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "justify-content"</h4>
+                <div class="input__wrapper input-4__wrapper">
+                    <section><input type="radio" name="select-4" id="flex-start" value="flex-start" checked="checked" onchange="setJustify()">flex-start</section>
+                    <section><input type="radio" name="select-4" id="flex-end" value="flex-end" onchange="setJustify()">flex-end</section>
+                    <section><input type="radio" name="select-4" id="center" value="center" onchange="setJustify()">center</section>
+                    <section><input type="radio" name="select-4" id="space-between" value="space-between" onchange="setJustify()">space-between</section>
+                    <section><input type="radio" name="select-4" id="space-around" value="space-around" onchange="setJustify()">space-around</section>
+                    <section><input type="radio" name="select-4" id="space-evenly" value="space-evenly" onchange="setJustify()">space-evenly</section>
+                </div>
+                <section class="description__text section-4__text">
+                    <p>Элементы расставляются от начала строки</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-4__footer">Контейнеру задано - justify-content:flex-start</div>
+            </div>
+        </fieldset>
+
+        <!-- section 5 align-items-->
+        <fieldset class="section">
+            <legend>align-items</legend>
+            <div class="section__wrapper section-5__wrapper section__flex">                
+                <div class="section__box section-5__box">Секция 1</div>
+                <div class="section__box section-5__box section__higher">Секция 2 большей высоты</div>
+                <div class="section__box section-5__box">Секция 3</div>
+            </div>        
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "align-items</h4>
+                <div class="input__wrapper input-5__wrapper">
+                    <section><input type="radio" name="select-5" id="align-items_flex-start" value="flex-start" checked="checked" onchange="setAlignItems()">flex-start</section>
+                    <section><input type="radio" name="select-5" id="align-items_flex-end" value="flex-end" onchange="setAlignItems()">flex-end</section>
+                    <section><input type="radio" name="select-5" id="align-items_center" value="center" onchange="setAlignItems()">center</section>
+                    <section><input type="radio" name="select-5" id="align-items_stretch" value="stretch" onchange="setAlignItems()">stretch</section>
+                    <section><input type="radio" name="select-5" id="align-items_baseline" value="baseline" onchange="setAlignItems()">baseline</section>
+                </div>
+                <section class="description__text section-5__text">
+                    <p>Элементы размещаются с начала поперечной оси</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-5__footer">Контейнеру задано - align-items:flex-start</div>
+            </div>
+        </fieldset>
+
+        <!-- section 6 align-content-->
+        <fieldset class="section">
+            <legend>align-content</legend>
+            <div class="section__wrapper section-6__wrapper section__flex">
+                    <div class="section__box section-6__box">Секция 1</div>
+                    <div class="section__box section-6__box">Секция 2</div>
+                    <div class="section__box section-6__box">Секция 3</div>
+                    <div class="section__box section-6__box">Секция 4</div>            
+            </div>        
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "align-content</h4>
+                <div class="input__wrapper input-6__wrapper">
+                    <section><input type="radio" name="select-6" id="align-content_flex-start" value="flex-start" checked="checked" onchange="setAlignContent()">flex-start</section>
+                    <section><input type="radio" name="select-6" id="align-content_flex-end" value="flex-end" onchange="setAlignContent()">flex-end</section>
+                    <section><input type="radio" name="select-6" id="align-content_center" value="center" onchange="setAlignContent()">center</section>
+                    <section><input type="radio" name="select-6" id="align-content_stretch" value="stretch" onchange="setAlignContent()">stretch</section>
+                    <section><input type="radio" name="select-6" id="align-content_space-between" value="space-between" onchange="setAlignContent()">space-between</section>
+                    <section><input type="radio" name="select-6" id="align-content_space-around" value="space-around" onchange="setAlignContent()">space-around</section>
+                    <section><input type="radio" name="select-6" id="align-content_space-evenly" value="space-evenly" onchange="setAlignContent()">space-evenly</section>
+                </div>
+                <section class="description__text section-6__text">
+                    <p>Строки расположены от начала контейнера</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-6__footer">Контейнеру задано - align-items:flex-start</div>
+            </div>
+        </fieldset>
+    </div>
+
+
+    <h2>Свойства элементов потомков</h2>
+    <div class="container">
+
+        <!-- section 7 order-->
+        <fieldset class="section">
+            <legend>Order</legend>
+            <div class="section__wrapper section-7__wrapper section__flex">                
+                <div class="section__box section-7__box">Секция 1</div>
+                <div class="section__box section-7__box">Секция 2</div>
+                <div class="section__box section-7__box">Секция 3</div>
+            </div>        
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "order" для среднего блока</h4>
+                <div class="input__wrapper input-7__wrapper">
+                    <section><input type="radio" name="select-7" id="order-1" value="2" checked="checked" onchange="setOrderValue()">2</section>
+                    <section><input type="radio" name="select-7" id="order-2" value="3" onchange="setOrderValue()">3</section>
+                    <section><input type="radio" name="select-7" id="order-3" value="-1" onchange="setOrderValue()">-1</section>
+                </div>
+                <section class="description__text section-7__text">
+                    <p>Элементы расположены по порядку</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-7__footer">У средней секции - order:2</div>
+            </div>
+        </fieldset>
+
+        <!-- section 8 flex-grow-->
+        <fieldset class="section">
+            <legend>flex-grow</legend>
+            <div class="section__wrapper section-8__wrapper section__flex">                
+                <div class="section__box section-8__box">Секция 1</div>
+                <div class="section__box section-8__box">Секция 2</div>
+                <div class="section__box section-8__box">Секция 3</div>
+            </div>        
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "flex-grow" для блоков</h4>
+                <div class="input__wrapper input-8__wrapper">
+                    <section><input type="radio" name="select-8" id="grow-0" value="0" checked="checked" onchange="setGrowValue()">Не задно</section>
+                    <section><input type="radio" name="select-8" id="grow-1" value="1" onchange="setGrowValue()">1</section>
+                    <section><input type="radio" name="select-8" id="grow-2" value="2" onchange="setGrowValue()">1-2-1</section>
+                    <section><input type="radio" name="select-8" id="grow-3" value="3" onchange="setGrowValue()">1-2-3</section>
+                </div>
+                <section class="description__text section-8__text">
+                    <p>Ширина секций в соответствии с их содержимым</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-8__footer">У всех секций - flex-grow отсутствует</div>
+            </div>
+        </fieldset>
+
+        <!-- section 9 flex-shrink-->
+        <fieldset class="section">
+            <legend>flex-shrink</legend>
+            <div class="section__wrapper section-9__wrapper section__flex">                
+                <div class="section__box section-9__box">Секция 1 длинная</div>
+                <div class="section__box section-9__box">Секция 2 самая-самая длинная, длиннее всех</div>
+                <div class="section__box section-9__box">Секция 3 вторая по длине</div>
+            </div>        
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "flex-shrink" для блоков</h4>
+                <div class="input__wrapper input-9__wrapper">
+                    <section><input type="radio" name="select-9" id="shrink-0" value="0" checked="checked" onchange="setShrinkValue()">Не задно</section>
+                    <section><input type="radio" name="select-9" id="shrink-1" value="1" onchange="setShrinkValue()">1</section>
+                    <section><input type="radio" name="select-9" id="shrink-2" value="2" onchange="setShrinkValue()">0-1-2</section>
+                    <section><input type="radio" name="select-9" id="shrink-3" value="3" onchange="setShrinkValue()">0.1-0.5-1</section>
+                </div>
+                <section class="description__text section-9__text">
+                    <p>Ширина секций в соответствии с их содержимым</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-9__footer">У всех секций - flex-shrink отсутствует</div>
+            </div>
+        </fieldset>
+
+        <!-- section 10 flex-basis-->
+        <fieldset class="section">
+            <legend>flex-basis</legend>
+            <div class="section__wrapper section-10__wrapper section__flex">                
+                <div class="section__box section-10__box">Секция 1</div>
+                <div class="section__box section-10__box">Секция 2 длинная</div>
+                <div class="section__box section-10__box">Секция 3 длиннейшая</div>
+            </div>        
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "flex-basis" для блоков</h4>
+                <div class="input__wrapper input-10__wrapper">
+                    <section><input type="radio" name="select-10" id="basis-0" value="0" checked="checked" onchange="setBasisValue()">auto</section>
+                    <section><input type="radio" name="select-10" id="basis-1" value="1" onchange="setBasisValue()">30%</section>
+                    <section><input type="radio" name="select-10" id="basis-2" value="2" onchange="setBasisValue()">0</section>
+                </div>
+                <section class="description__text section-10__text">
+                    <p>Ширина секций в соответствии с их содержимым.</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-10__footer">У всех секций - flex-basis:auto. </div>
+            </div>
+        </fieldset>
+
+        <!-- section 11 align-self-->
+        <fieldset class="section">
+            <legend>align-self</legend>
+            <div class="section__wrapper section-11__wrapper section__flex">                
+                <div class="section__box section-11__box">Секция 1</div>
+                <div class="section__box section-11__box">Секция 2 </div>
+                <div class="section__box section-11__box">Секция 3 </div>
+            </div>        
+            <div class="section__description">
+                <h4 class="description__header">Варианты свойства "align-self" для блоков</h4>
+                <div class="input__wrapper input-11__wrapper">
+                    <section><input type="radio" name="select-11" id="align-self_auto" value="auto" checked="checked" onchange="setAlignSelfValue()">auto</section>
+                    <section><input type="radio" name="select-11" id="align-self_flex" value="flex" onchange="setAlignSelfValue()">flex-start/center/flex-end</section>
+                    <section><input type="radio" name="select-11" id="align-self_baseline" value="baseline" onchange="setAlignSelfValue()">baseline</section>
+                    <section><input type="radio" name="select-11" id="align-self_stretch" value="stretch" onchange="setAlignSelfValue()">stretch</section>
+                </div>
+                <section class="description__text section-11__text">
+                    <p>Блоки выровнены так, как задано в свойстве align-items</p>
+                    <hr>
+                </section>
+                <div class="section__footer section-11__footer">У всех секций - align-self:auto</div>
+            </div>
+        </fieldset>
+    </div>
+
+    <footer>
+        <p class="footer__text">Сайт создан по двум причинам:</p>
+        <div class="footer__wrapper">
+            <ul class="footer__list">
+                <li class="footer__list-item">Чтобы потренироваться в использовании HTML/CSS/JS</li>
+                <li class="footer__list-item">Чтобы дать возможность любому наглядно посмотреть на свойство display:flex</li>
+            </ul>
+        </div>
+        <p class="footer__text">С вопросами и пожеланиями можно писать на <a href="mailto:kosolapii@list.ru">kosolapii@list.ru</a> </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
